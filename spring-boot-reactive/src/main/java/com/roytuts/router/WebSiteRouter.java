@@ -28,10 +28,7 @@ public class WebSiteRouter {
 						RequestPredicates.PUT("/website").and(RequestPredicates.accept(MediaType.APPLICATION_JSON))
 								.and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)),
 						webSiteHandler::updateWebSite)
-				.andRoute(
-						RequestPredicates.DELETE("/website/{id}")
-								.and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)),
-						webSiteHandler::deleteWebSite);
+				.andRoute(RequestPredicates.DELETE("/website/{id}"), webSiteHandler::deleteWebSite);
 		return webSiteRoute;
 	}
 
